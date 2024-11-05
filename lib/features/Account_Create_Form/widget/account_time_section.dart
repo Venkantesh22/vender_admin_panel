@@ -6,11 +6,11 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:samay_admin_plan/constants/global_variable.dart';
 import 'package:samay_admin_plan/utility/dimenison.dart';
 
-class SalonTimeSection extends StatefulWidget {
+class PickTimeSection extends StatefulWidget {
   TextEditingController openController;
   TextEditingController closeController;
   String heading;
-  SalonTimeSection({
+  PickTimeSection({
     super.key,
     required this.openController,
     required this.closeController,
@@ -18,20 +18,36 @@ class SalonTimeSection extends StatefulWidget {
   });
 
   @override
-  State<SalonTimeSection> createState() => _SalonTimeSectionState();
+  State<PickTimeSection> createState() => _PickTimeSectionState();
 }
 
-class _SalonTimeSectionState extends State<SalonTimeSection> {
+class _PickTimeSectionState extends State<PickTimeSection> {
+  @override
+  // void didChangeDependencies() {
+  //   super.didChangeDependencies();
+  //   // Initialize the openController with the current time if it's empty
+  //   if (widget.openController.text.isEmpty) {
+  //     widget.openController.text = _formatTimeOfDay(TimeOfDay.now());
+  //   }
+  //   // Initialize the closingController with the current time if it's empty
+  //   if (widget.closeController.text.isEmpty) {
+  //     widget.closeController.text = _formatTimeOfDay(TimeOfDay.now());
+  //   }
+  // }
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    // Initialize the openController with the current time if it's empty
+
+    // Initialize controllers only if empty, using stored global values if available
     if (widget.openController.text.isEmpty) {
-      widget.openController.text = _formatTimeOfDay(TimeOfDay.now());
+      widget.openController.text = GlobalVariable.OpenTime != null
+          ? _formatTimeOfDay(GlobalVariable.OpenTime)
+          : _formatTimeOfDay(TimeOfDay.now());
     }
-    // Initialize the closingController with the current time if it's empty
     if (widget.closeController.text.isEmpty) {
-      widget.closeController.text = _formatTimeOfDay(TimeOfDay.now());
+      widget.closeController.text = GlobalVariable.CloseTime != null
+          ? _formatTimeOfDay(GlobalVariable.CloseTime)
+          : _formatTimeOfDay(TimeOfDay.now());
     }
   }
 

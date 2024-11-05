@@ -10,8 +10,7 @@ import 'package:provider/provider.dart';
 import 'package:samay_admin_plan/constants/constants.dart';
 import 'package:samay_admin_plan/constants/global_variable.dart';
 import 'package:samay_admin_plan/constants/router.dart';
-import 'package:samay_admin_plan/features/Account_Create_Form/widget/salon_social_media_add.dart';
-import 'package:samay_admin_plan/features/Account_Create_Form/widget/saloon_Time.dart';
+import 'package:samay_admin_plan/features/Account_Create_Form/widget/account_time_section.dart';
 import 'package:samay_admin_plan/features/home/main_home/home_screen.dart';
 import 'package:samay_admin_plan/models/salon_form_models/salon_infor_model.dart';
 import 'package:samay_admin_plan/provider/app_provider.dart';
@@ -19,7 +18,6 @@ import 'package:samay_admin_plan/utility/color.dart';
 import 'package:samay_admin_plan/utility/dimenison.dart';
 import 'package:samay_admin_plan/widget/customauthbutton.dart';
 import 'package:samay_admin_plan/widget/customtextfield.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SalonProfilePage extends StatefulWidget {
   const SalonProfilePage({super.key});
@@ -685,7 +683,7 @@ class _SalonProfilePageState extends State<SalonProfilePage> {
         ),
 
         //! select a time
-        SalonTimeSection(
+        PickTimeSection(
           openController: _openTime,
           closeController: _closeTime,
           heading: "If you want to Change Timing update here",

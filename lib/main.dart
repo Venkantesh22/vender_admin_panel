@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
       builder: (context, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          title: 'Salon samay',
+          title: 'Salon Samay',
           theme: themeData,
           home: StreamBuilder(
             stream: FirebaseAuthHelper.instance.getAuthChange,
